@@ -1,2 +1,6 @@
 node_modules
+.sass_cache
+static/css
+static/js/bundle.js
+.map
 

@@ -23,11 +23,7 @@ gulp.task("default", ["build-dev"])
 gulp.task("build-dev", ["webpack:build-dev", "sass:build-dev"], function() {
   gulp.watch(["client/**/*"], ["webpack:build-dev"])
   gulp.watch('./static/sass/**/*.scss', ['sass:build-dev'])
-  nodemon({
-    script: 'server.js',
-    ext: 'js html',
-    env: { 'NODE_ENV': 'development' }
-  })
+  nodemon(require('./nodemon.json'))
 })
 
 // Production build

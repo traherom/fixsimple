@@ -1,0 +1,22 @@
+frontend:
+  build: site
+  restart: always
+#api:
+#  build: api
+#  restart: always
+#frontdb:
+#  build: frontdb
+#  restart: always
+#  environment:
+#    - PGDATA=/var/lib/postgresql/data/sitedata
+#  volumes:
+#    - ~/fixsimple-data/db:/var/lib/postgresql/data/sitedata
+proxy:
+  build: proxy
+  restart: always
+  ports:
+    - "80:80"
+    - "443:443"
+  volumes:
+    - ~/fixsimple-data/logs/nginx:/var/log/nginx
+
